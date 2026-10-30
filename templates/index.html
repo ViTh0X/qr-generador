@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador QR gratis y rápido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js" defer></script>
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <p class="badge">Gratis · Rápido · Sin cuenta</p>
+            <h2 class="tamano-letra">Generador de códigos QR</h2>
+            <p class="hero-text">Elige un tipo, completa el formulario y genera tu código al instante.</p>
+        </header>
+
+        <main class="layout">
+            <section class="card">
+                <h2>Tipo de código</h2>
+                <form
+                    class="qr-form"
+                    method="post"
+                    action="{% url 'generar_qr' %}"
+                    hx-post="{% url 'generar_qr' %}"
+                    hx-target="#qr-result"
+                    hx-swap="innerHTML"
+                    hx-disabled-elt="find button[type='submit']"
+                >
+                    {% csrf_token %}
+
+                    <div id="type-grid" class="type-grid" role="tablist" aria-label="Tipos de QR">
+                        {% include 'partials/tipos_qr.html' %}
+                    </div>
+
+                    <div id="form-fields" class="qr-form-fields">
+                        {% include 'partials/campos_form.html' %}
+                    </div>
+
+                    <button type="submit" class="submit-btn">Generar código QR</button>
+                </form>
+            </section>
+
+            <aside class="card preview-card">
+                <h2 class="no-margin">Tu código QR</h2>
+                <div id="qr-result">
+                    {% include 'partials/qr_resultado.html' %}
+                </div>
+                <div class="mensaje-apoyo">
+                    <p>👏Apoya para mejorar el Proyecto.👍</p>
+                    <img src="../media/QR MI LEITO.jpeg" alt="" class="img-qr-tamano">
+                </div>
+            </aside>
+        </main>
+    </div>
+</body>
+</html>

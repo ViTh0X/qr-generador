@@ -1,0 +1,15 @@
+{% if qr_base64 %}
+    <div class="qr-generado">
+        <img src="data:image/png;base64,{{ qr_base64 }}" alt="Código QR generado">
+        
+        <!-- Enlace estilizado como botón -->
+        <a href="data:image/png;base64,{{ qr_base64 }}" download="codigo-qr.png" class="btn-descargarqr">
+            📥 Descargar Código QR
+        </a>
+    </div>
+{% else %}
+    <div class="qr-placeholder">
+        <div class="qr-fake" aria-hidden="true"></div>
+        <p>Aquí aparecerá tu QR cuando lo generes.</p>
+    </div>
+{% endif %}

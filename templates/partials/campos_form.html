@@ -1,0 +1,6 @@
+<input type="hidden" name="tipo" value="{{ tipo }}">
+{% for field in form %}
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {{ field }}
+    {{ field.errors }}
+{% endfor %}

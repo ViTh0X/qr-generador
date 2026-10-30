@@ -1,0 +1,12 @@
+<div id="qr-preview" class="qr-preview">
+    {% include 'partials/qr_preview.html' %}
+</div>
+<p class="qr-caption{% if error %} is-error{% endif %}">
+    {{ caption|default:'Completa el formulario y pulsa generar.' }}
+</p>
+
+{% if form.errors %}
+<div id="form-fields" class="qr-form-fields" hx-swap-oob="innerHTML">
+    {% include 'partials/campos_form.html' %}
+</div>
+{% endif %}

@@ -1,0 +1,55 @@
+<button
+    type="button"
+    class="type-btn{% if tipo == 'url' %} is-active{% endif %}"
+    hx-get="{% url 'campos_qr' %}?tipo=url"
+    hx-target="#form-fields"
+    hx-swap="innerHTML"
+    aria-pressed="{% if tipo == 'url' %}true{% else %}false{% endif %}"
+>
+    <span class="type-icon" aria-hidden="true">🔗</span>
+    Enlace
+</button>
+<button
+    type="button"
+    class="type-btn{% if tipo == 'vcard' %} is-active{% endif %}"
+    hx-get="{% url 'campos_qr' %}?tipo=vcard"
+    hx-target="#form-fields"
+    hx-swap="innerHTML"
+    aria-pressed="{% if tipo == 'vcard' %}true{% else %}false{% endif %}"
+>
+    <span class="type-icon" aria-hidden="true">🪪</span>
+    VCard
+</button>
+<button
+    type="button"
+    class="type-btn{% if tipo == 'wifi' %} is-active{% endif %}"
+    hx-get="{% url 'campos_qr' %}?tipo=wifi"
+    hx-target="#form-fields"
+    hx-swap="innerHTML"
+    aria-pressed="{% if tipo == 'wifi' %}true{% else %}false{% endif %}"
+>
+    <span class="type-icon" aria-hidden="true">📶</span>
+    WiFi
+</button>
+<button
+    type="button"
+    class="type-btn{% if tipo == 'whatsapp' %} is-active{% endif %}"
+    hx-get="{% url 'campos_qr' %}?tipo=whatsapp"
+    hx-target="#form-fields"
+    hx-swap="innerHTML"
+    aria-pressed="{% if tipo == 'whatsapp' %}true{% else %}false{% endif %}"
+>
+    <span class="type-icon" aria-hidden="true">💬</span>
+    WhatsApp
+</button>
+<button
+    type="button"
+    class="type-btn{% if tipo == 'texto' %} is-active{% endif %}"
+    hx-get="{% url 'campos_qr' %}?tipo=texto"
+    hx-target="#form-fields"
+    hx-swap="innerHTML"
+    aria-pressed="{% if tipo == 'texto' %}true{% else %}false{% endif %}"
+>
+    <span class="type-icon" aria-hidden="true">📝</span>
+    Texto
+</button>
