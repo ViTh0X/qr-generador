@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.50.2','127.0.0.1','fast-qr.dev']
+ALLOWED_HOSTS = ['192.168.50.2','127.0.0.1','fast-qr.dev','www.fast-qr.dev', '159.223.182.74']
 
 
 # Application definition
