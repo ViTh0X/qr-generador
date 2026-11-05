@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('generador-qr-facil-gratis/', include('app_generador_qr.urls')),
+    path('', include('app_generador_qr.urls')),
 ]
 
 
